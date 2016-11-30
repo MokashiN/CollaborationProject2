@@ -1,0 +1,18 @@
+{
+  "name": "CollaborationFrontEnd",
+  "description": "social web app",
+  "main": "",
+  "authors": [
+    "nilesh.mokashi@gmail.com"
+  ],
+  "license": "mit",
+  "homepage": "index",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

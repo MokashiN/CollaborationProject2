@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="myPage">Collaboration Center</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="#">HOME</a></li>
+        <li class="active"><a href="#/chat"> Chat</a></li>
+        <li class="active"><a href="#/logout"> Logout</a></li>
+        <li><a href="#/reg">Register With Us</a></li>
+        <li><a href="#/Forum">Forum </a></li>
+        <li><a href="#/Blog">Blog </a></li>
+        <li><a href="#/Job">Job</a></li>
+        <li><a href="#/AboutUs">About Us</a></li>
+        <li><a href="#/search_friend">Search Friend</a></li>
+        <li><a href="#/view_friend">View Friend</a></li>
+        
+      </ul>
+    </div>
+</nav>
+<div class="container" ng-controller="FriendController as ctrl">
+
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<div class="form-group has-feedback"></div>
+
+  Search
+
+  <p><input type="text" ng-model="sear_text"></p>
+
+
+	<div ng-repeat="user in ctrl.users | filter: sear_text">
+
+		<fieldset>
+			<legend></legend>
+			
+			<p>Online ?: {{user.isOnline}}  
+
+			<p>ID: {{user.id}} &nbsp; &nbsp;&nbsp; Name: {{user.name}}
+			    &nbsp; &nbsp;&nbsp;  <button type="button"  ng-click="ctrl.sendFriendRequest(user.id)" 
+			       class="btn btn-warning btn-sm">Send Friend Request</button>
+			  </p>
+
+			<p>Email: {{user.email}} &nbsp; &nbsp;&nbsp; Mobile:{{user.mobileNo}}</p>
+
+			<p> Address:{{user.address}} &nbsp; &nbsp;&nbsp; Role :{{user.role}}</p>
+		</fieldset>
+	</div>
+
+
+</div>

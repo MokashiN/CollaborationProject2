@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="shortcut icon" href="favicon.ico">
+
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+<script src="resources/js/bootstrap.min.js"></script>
+<script type="text/html" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="myPage">Collaboration Center</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="#">HOME</a></li>
+        <li class="active"><a href="#/chat"> Chat</a></li>
+        <!-- <li class="active"><a href="#/logout"> Logout</a></li> -->
+        <li><a href="#/logout" ng-click="ctrl.logout()">Logout</a></li>
+        <li><a href="#/reg">Register With Us</a></li>
+        <li><a href="#/Forum">Forum </a></li>
+         <li><a href="#/login">Login</a></li>
+        <li><a href="#/Blog">Blog </a></li>
+        <li><a href="#/Job">Post Job</a></li>
+        <li><a href="#/JobList">Job List</a></li>
+        <li><a href="#/JobApply">Job Apply</a></li>
+        <li><a href="#/search_friend">Search Friend</a></li>
+        <li><a href="#/view_friend">View Friend</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+</head>
+<body ng-app="myApp">
+	<div class="generic-container" ng-controller="JobController as ctrl">
+		<br/><br/><br/><br/><br/>
+		<h3>List of Vacancies</h3>
+		<p>
+			Search Category:<input type="text" size="40" ng-model="searchTerm" />
+		</p>
+		<div class="panel-body">
+			<div ng-repeat="uj in ctrl.jobs | filter:searchTerm"">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title" style="font-weight: bold;"><b>{{uj.title}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color: orange;">{{uj.companyname}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h3>
+					</div>
+					<b style="color: #7f8496;">Job Description </b><br>{{uj.description}}<br/><br/>
+					<b style="color: #7f8496;">Qualification : </b>{{uj.qualification}}&nbsp;&nbsp;
+					<b style="color: #7f8496;">Experience : </b>{{uj.experience}}&nbsp;&nbsp;
+					<b style="color: #7f8496;">Post Date </b>{{uj.postdate}}&nbsp;&nbsp;
+					<br/><br/>
+					<!-- <button ng-hide="currentUser.useremail==undefined" class="pull-center" style="font-weight: bold;" ng-click="ctrl.clickOnApply(uj.id)"> -->
+					<button class="pull-center" style="font-weight: bold;" ng-click="ctrl.clickOnApply(uj.id)"> 
+						<span class="glyphicon glyphicon-bookmark">Apply</span>
+					</button>
+					
+				</div>
+			</div>
+		</div>
+		<script src="app.js"></script>
+	<script src="c_job/JobController.js"></script>
+	<script src="c_job/JobService.js"></script>
+</body>
+</html>
